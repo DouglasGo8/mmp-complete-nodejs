@@ -1,0 +1,27 @@
+= The Complete Node.js Developer Course 3rd Edition
+
+== All code will use Babel Core and Modern ES6 syntax
+
+[source, bash]
+----
+npm i --save-dev @babel/core @babel/preset-env @babel/register core-js regenerator-runtime   
+----
+
+[source, javascript]
+----
+import "core-js/stable";
+import "regenerator-runtime/runtime";
+
+const myPromise = () =>
+  new Promise((resolve) => {
+    resolve("done");
+  });
+
+const myAsync = async () => {
+  const myValue = await myPromise();
+  console.log(myValue);
+};
+
+myAsync();
+
+----
