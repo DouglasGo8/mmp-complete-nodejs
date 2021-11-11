@@ -1,5 +1,5 @@
 {
-  "name": "basic-concept",
+  "name": "basic-concepts",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -12,10 +12,12 @@
   "devDependencies": {
     "@babel/core": "^7.16.0",
     "@babel/preset-env": "^7.16.0",
-    "@babel/register": "^7.16.0"
-  },
-  "dependencies": {
+    "@babel/register": "^7.16.0",
     "core-js": "^3.19.1",
     "regenerator-runtime": "^0.13.9"
+  },
+  "dependencies": {
+    "chalk": "^4.1.2",
+    "validator": "^13.7.0"
   }
 }

@@ -9,6 +9,7 @@ npm i --save-dev @babel/core @babel/preset-env @babel/register core-js regenerat
 
 [source, javascript]
 ----
+
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
