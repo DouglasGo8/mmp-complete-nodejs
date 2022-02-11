@@ -1,14 +1,14 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
 
-import { addNotes } from "./notes";
+//import { addNotes } from "./notes";
 
 // const log = console.log;
 
 /*const book = {
   isbn: "987755418884",
   title: "Apache Camel Core Concepts",
-  author: "Douglas Batista",
+  author: "Douglas Batista", 
 };*/
 
 // core Javascript (stringify)
@@ -25,4 +25,16 @@ import { addNotes } from "./notes";
 
 //log(JSON.parse(content.toString()).title);
 
-addNotes("bla", "bla 2");
+//addNotes("bla", "bla 2");
+
+const geoCode = (address, callBack) => {
+  setTimeout(() => {
+    const data = { latitude: 0, longitude: 0, address };
+
+    callBack(data);
+  }, 2000);
+};
+
+geoCode("New York", (d) => {
+  console.log(d);
+});
