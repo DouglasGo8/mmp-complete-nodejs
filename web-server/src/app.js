@@ -1,38 +1,60 @@
 import "core-js/stable";
 import "regenerator-runtime/runtime";
+//
+import hbs from 'hbs';
+import path from "path";
 import express from "express";
-
+//
 const app = express();
-
 const log = console.log;
+const viewsPath = path.join(__dirname, "../templates/views")
+const partialsPath = path.join(__dirname, "../templates/partials")
+//
+app.set('view engine', 'hbs')
+app.set('views', viewsPath)
+hbs.registerPartials(partialsPath)
+//
+app.use(express.static(path.join(__dirname, "../public")))
 
-app.get("", (req, resp) => {
-  resp.send("<h1>Balloon Yep</h1>");
-});
+app.get('', (req, res) => {
+  res.render('index', {
+    title: 'Weather App',
+    name: 'Author 1'
+  })
+})
 
-app.get("/help", (req, resp) => {
-  resp.send([
-    {
-      name: "Douglas",
-      age: 42,
-    },
-    {
-      name: "Ketty",
-      age: 40,
-    },
-  ]);
-});
+app.get('/about', (req, res) => {
+  res.render('about', {
+    title: 'About',
+    name: 'Author 2'
+  })
+})
 
-app.get("/about", (req, resp) => {
-  resp.send("<h1>About</h1>");
-});
-
-app.get("/weather", (req, resp) => {
-  resp.send({
-    forecast: "Snow",
-    location: "Philadelphia",
+app.get("/help", (req, res) => {
+  res.render('help', {
+    helpText: "Help Page",
+    title: 'Help',
+    name: 'Author 3'
   });
 });
+
+
+app.get('/help/*', (req, res) => {
+  res.render('404', {
+    errorMessage: "Not found page",
+    title: '404',
+    name: 'Page not found'
+  })
+})
+
+app.get('*', (req, res) => {
+  res.render('404', {
+    errorMessage: "Not found page",
+    title: '404',
+    name: 'Page not found'
+  })
+})
+
 
 //log("NodeJs Rocks!!!");
 

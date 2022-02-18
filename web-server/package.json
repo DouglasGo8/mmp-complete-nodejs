@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon start.js"
+    "start": "nodemon start.js -e js,hbs"
   },
   "author": "dougdb",
   "license": "ISC",
@@ -17,6 +17,7 @@
     "regenerator-runtime": "^0.13.9"
   },
   "dependencies": {
-    "express": "^4.17.2"
+    "express": "^4.17.2",
+    "hbs": "^4.2.0"
   }
 }
